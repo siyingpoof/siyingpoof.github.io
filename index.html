@@ -47,7 +47,7 @@ body {
   background-color: #f9f6ef;
   padding: 20px; 
   font-family: Rubik;
-  margin-left: 140px;
+  margin-left: 60px;
   align-content: center;
   position: relative;
 }
@@ -55,7 +55,7 @@ body {
 /* core competences formating */
 .column-list {
     /*float: left;*/
-    padding-left: 20px;
+    /*padding-left: 20px;*/
     margin-left: 50px;
     margin-right: 50px;
   }
@@ -117,9 +117,8 @@ body {
   font-family: 'Rubik';
 }
 
-/* Center website */
 .main {
-  max-width: 1000px;
+  /*max-width: 1000px;*/
   /*margin-left: 150px;*/
   padding: 20px 40px;
 }
@@ -130,14 +129,21 @@ h1 {
 }
 
 .row {
-  margin: -10px -16px;
+  margin: 0px -5px;
+  padding: 10px;
+}
+
+.column {
+	float: left;
+	width: 33%;
+	padding: 0 10px;
 }
 
 /* Add padding BETWEEN each column */
-.row,
+/*.row,
 .row > .column {
   padding: 8px;
-}
+}*/
 
 /* Clear floats after rows */ 
 .row:after {
@@ -146,11 +152,26 @@ h1 {
   clear: both;
 }
 
+/* Responsive columns */
+@media screen and (max-width: 1050px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+	.card {
+	  	width: 100%;
+	  	display: block;
+	}
+}
+
 /* card for portfolio */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 32rem;
   padding: 10px;
 }
 
@@ -257,6 +278,21 @@ h1 {
      color: #546d5a;
  }
 
+ .display-when-big {
+    display: inline;
+}
+.display-when-small {
+    display: none;
+}
+@media screen and (max-width: 1000px) {
+    .display-when-big {
+        display: none;
+    }
+    .display-when-small {
+        display: inline;
+    }
+}
+
 </style>
 <title>Alvina Ong Si Ying</title>
 </head>
@@ -276,19 +312,36 @@ h1 {
 
   <div class="main" id="about">
     <br>
-    <div class="container center">
-      <img src="me.jpg" alt="Alvina" class="image" style="width:100%">
-      <div class="middle">
-        <div class="text">
-          <h1>I AM ALVINA.</h1>
-          <h3>Passionate. Inquisitive. Genuine.</h3>
-          <br>
-          I believe in empathy - it is the only thing that will bring us to places beyond our limited perspectives.
-          <br>
-          <br>
-        </div>
-      </div>
-    </div>
+    <span class="display-when-big">
+    	<div class="container center">
+	    	<picture class="image">
+	    		<source media="(min-width: 1000px)" srcset="me.jpg" style="width: 100%">
+	    		<img src="profile.jpg" style="width: 100%">
+	    	</picture>
+	      <!-- <img src="me.jpg" alt="Alvina" class="image" style="width:100%"> -->
+	      <div class="middle">
+	        <div class="text">
+	          <h1>I AM ALVINA.</h1>
+	          <h3>Passionate. Inquisitive. Genuine.</h3>
+	          <br>
+	          I believe in empathy - it is the only thing that will bring us to places beyond our limited perspectives.
+	          <br>
+	          <br>
+	        </div>
+	      </div>
+	    </div>
+    </span>
+
+    <span class="display-when-small">
+    	<img src="profile.jpg" style="width: 50%">
+    	<h1>I AM ALVINA.</h1>
+    	<h3>Passionate. Inquisitive. Genuine.</h3>
+    	<br>
+    	I believe in empathy - it is the only thing that will bring us to places beyond our limited perspectives.
+    	<br>
+    	I am a year 2 undergraduate studying Business Administration and Computer Science in NUS. I am interested in a Software Engineering role.
+    </span>
+    
   </div>
 
   <!-- <div id="navbar">
@@ -568,14 +621,19 @@ h1 {
 
   <h1>Portfolio</h1>
   <hr>
-  <div class="card" align="center">
-     <img src="ALive logo.jpeg" alt="ALive" style="width:100%">
-     <div class="container">
-       <h4><b>ALive</b></h4> 
-       <p>Linking like-minded student organisers to volunteers.</p>
-       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ALive">Find out more</button>
-     </div>
+  <div class="row">
+  	<div class="column">
+  		<div class="card" align="center">
+		     <img src="ALive logo.jpeg" alt="ALive" style="width:100%">
+		     <div class="container">
+		       <h4><b>ALive</b></h4> 
+		       <p>Linking like-minded student organisers to volunteers.</p>
+		       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ALive">Find out more</button>
+		     </div>
+		  </div>
+  	</div>
   </div>
+  
   <br>
 
 <!-- Modal -->
@@ -610,7 +668,7 @@ h1 {
   <h1>Extra-Curricular Activities</h1>
   <hr>
   <div class="row">
-    <div class="col-sm-4">
+    <div class="column">
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
@@ -622,7 +680,7 @@ h1 {
             </div>
           </div>
           <div class="flip-card-back">
-            <h5>Led a team of 32 under the Academic Liaison and Community Service cells to roll out activities for undergraduates in School of Computing (SoC)</h5>
+            <h5><strong>Leading</strong> a team of 32 under the Academic Liaison and Community Service cells to roll out activities for Computing undergraduates.</h5>
             <strong>Key new initiatives:</strong>
             <h5><u>Elderly Service Project Chinese New Year Engagement Day:</u> 50+ volunteers visited elderly homes to clean and distribute food provisions.</h5>
             <h5><u>Career Launchpad:</u> Talks from industry experts and workshops by external vendors for 200+ students to prepare for job hunting.</h5>
@@ -631,7 +689,7 @@ h1 {
       </div>
     </div>
 
-    <div class="col-sm-4">
+    <div class="column">
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
@@ -643,8 +701,8 @@ h1 {
             </div>
           </div>
           <div class="flip-card-back">
-            <h5>Planned and executed activities of educational purposes for under-privileged children.</h5>
-            <h5>Activities included: 
+            <h5><strong>Planned</strong> and executed activities of educational purposes for under-privileged children.</h5>
+            <h5><strong>Activities</strong> included: 
               <ul>
                 <li>Terrarium making (Environmental awareness)</li>
                 <li>Baking (Home economics)</li>
@@ -658,11 +716,11 @@ h1 {
       </div>
     </div>
 
-    <div class="col-sm-4">
+    <div class="column">
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
-            <img src="BSA.jpg" style="width: 100%">
+            <img src="BSA.jpg" style="height: 100%">
             <div class="text-block">
               <h5>Internal Marketing Head</h5>
               <h6>NUS Business School Alumni Youth Wing</h6>
@@ -670,9 +728,9 @@ h1 {
             </div>
           </div>
           <div class="flip-card-back">
-            <h5>In charge of ideating ways to increase participation in the finale networking event - Connexxion 2018.</h5>
-            <h5>Initiated offline marketing campaigns - pre/post-lecture pitching.</h5>
-            <h5>Generated enticing captions on NUS BSA social media platforms.</h5>
+            <h5><strong>In charge</strong> of ideating ways to increase participation in the finale networking event - Connexxion 2018.</h5>
+            <h5><strong>Initiated</strong> offline marketing campaigns - pre/post-lecture pitching.</h5>
+            <h5><strong>Generated</strong> enticing captions on NUS BSA social media platforms.</h5>
             <h5>Resulted in a higher than expected turn up of 50 student participants for the intimate and meaningful networking event.</h5>
           </div>
         </div>
@@ -680,10 +738,9 @@ h1 {
     </div>
   </div>
 
-  <br><br>
 
   <div class="row">
-    <div class="col-sm-4">
+    <div class="column">
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
@@ -695,20 +752,20 @@ h1 {
             </div>
           </div>
           <div class="flip-card-back">
-            <h5>Ideated simple and engaging activities for the intellectually disabled children from our beneficiary.</h5>
-            <h5>Designed the fundraising booth to attract students to purchase our fundraising items.</h5>
-            <h5>Assisted in execution of Beneficiary Engagement Days and FLAG Day (raised funds on the streets).</h5>
+            <h5><strong>Ideated</strong> simple and engaging activities for the intellectually disabled children from our beneficiary.</h5>
+            <h5><strong>Designed</strong> the fundraising booth to attract students to purchase our fundraising items.</h5>
+            <h5><strong>Assisted</strong> in execution of Beneficiary Engagement Days and FLAG Day (raised funds on the streets).</h5>
             <h5>Successfully raised a total of ~$7000 for our beneficiary on FLAG Day with ~300 student volunteers.</h5>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="col-sm-4">
+    <div class="column">
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
-            <img src="oweek.jpeg" style="width: 100%">
+            <img src="oweek.jpeg" style="height: 100%">
             <div class="text-block">
               <h5>Publicity Member</h5>
               <h6>NUS Business School Orientation Week</h6>
@@ -716,20 +773,20 @@ h1 {
             </div>
           </div>
           <div class="flip-card-back">
-            <h5>In charge of photography prior to and during the camp.</h5>
-            <h5>Assisted in filming of househeads (leaders of Orientation Group Leaders (OGL)) and carried out a photoshoot for them.</h5>
-            <h5>Designed a recruitment poster for recruitment of OGL for the camp.</h5>
-            <h5>Tasked to capture precious memories throughout the camp and photos were used to make a video montage that was shown at the end of the camp.</h5>
+            <h5><strong>In charge</strong> of photography prior to and during the camp.</h5>
+            <h5><strong>Assisted</strong> in filming of househeads (leaders of Orientation Group Leaders (OGL)) and carried out a photoshoot for them.</h5>
+            <h5><strong>Designed</strong> the recruitment poster for recruitment of OGL for the camp.</h5>
+            <h5><strong>Tasked</strong> to capture precious memories throughout the camp and photos were used to make a video montage that was shown at the end of the camp.</h5>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="col-sm-4">
+    <div class="column">
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
-            <img src="fsc18.jpeg" style="width: 100%">
+            <img src="fsc18.jpeg" style="height: 100%">
             <div class="text-block">
               <h5>Manpower member</h5>
               <h6>NUS School of Computing Freshmen Social Camp</h6>
@@ -737,17 +794,18 @@ h1 {
             </div>
           </div>
           <div class="flip-card-back">
-            <h5>Assisted in manpower </h5>
-            <h5>Took care of admin stuff, planned and executed activities on Beach Day.</h5>
+            <h5><strong>Assisted</strong> in the selection process of the Orientation Group Leaders.</h5>
+            <h5><strong>Collated</strong> important information and documents to ensure safety and welfare of participants.</h5>
+            <h5><strong>Ideated</strong> engaging original games that fosters teamwork within groups for Beach Day.</h5>
+            <h5>Participants feedbacked that Freshmen Social Camp was a one-of-a-kind camp that helped fostered strong friendships even beyond the camp.</h5>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <br><br>
 
   <div class="row">
-    <div class="col-sm-4">
+    <div class="column">
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
@@ -758,7 +816,8 @@ h1 {
             </div>
           </div>
           <div class="flip-card-back">
-            <h5>Performed an original song during 红白歌会 concert.</h5>
+            <h5><strong>Performed</strong> an original song 《是否会》 (Will you?) during the 《红白歌会》 (Red-White concert).</h5>
+            <h5><strong>Worked</strong> with other instrumentalists to discuss the arrangement of the song.</h5>
           </div>
         </div>
       </div>
