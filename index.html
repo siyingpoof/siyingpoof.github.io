@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+<!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 140px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.sidenav-link.nav-active {
+  color:#ffffff;
+}
+
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px; 
+  font-family: Arial;
+  margin: 0;
+  position: relative;
+}
+
+/*#navbar {
+  overflow: hidden;
+  background-color: #333;
+  z-index: 99999;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}*/
+/*
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}*/
+
+/* core competences formating */
+.column-list {
+    /*float: left;*/
+    padding-left: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+
+/* top image */
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin-left: 160px;
+  padding: 20px 40px;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: -10px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* card for portfolio */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 32rem;
+  padding: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+  padding-bottom: 16px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 26rem;
+  height: 26rem;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+  z-index: 2;
+}
+
+.flip-card-back {
+  /*background-color: #000000;*/
+  background-image: url("background1.jpg");
+  color: black;
+  transform: rotateY(180deg);
+  z-index: 1;
+  padding: 10px;
+  padding-top: 3px;
+  text-align: left;
+}
+
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  left: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  opacity: 0.8;
+}
+
+.container-footer {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+
+.footer {
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+
+.social:hover {
+     -webkit-transform: scale(1.1);
+     -moz-transform: scale(1.1);
+     -o-transform: scale(1.1);
+ }
+ .social {
+     -webkit-transform: scale(0.8);
+     /* Browser Variations: */
+     
+     -moz-transform: scale(0.8);
+     -o-transform: scale(0.8);
+     -webkit-transition-duration: 0.5s;
+     -moz-transition-duration: 0.5s;
+     -o-transition-duration: 0.5s;
+ }
+
+/*
+    Multicoloured Hover Variations
+*/
+ 
+ #social-fb:hover {
+     color: #3B5998;
+ }
+ #social-tw:hover {
+     color: #4099FF;
+ }
+ #social-gp:hover {
+     color: #d34836;
+ }
+ #social-em:hover {
+     color: #f39c12;
+ }
+
+</style>
+<title>Alvina Ong Si Ying</title>
+</head>
+
+
+<body>
+
+  <div class="sidenav" id="sidenav">
+    <a href="#about" class="sidenav-link"><i class="fa fa-fw fa-user"></i> Alvina Ong Si Ying</a>
+    <a href="#education" class="sidenav-link"><i class="fa fa-fw fa-graduation-cap"></i> Education</a>
+    <a href="#competencies" class="sidenav-link"><i class="fa fa-fw fa-thumbs-up"></i> Competencies</a>
+    <a href="#portfolio" class="sidenav-link"><i class="fa fa-fw fa-folder-open"></i> Portfolio</a>
+    <a href="#activities" class="sidenav-link"><i class="fa fa-fw fa-check-circle"></i> Activities</a>
+    <a href="#contact" class="sidenav-link"><i class="fa fa-fw fa-phone"></i> Contact</a>
+  </div>
+
+
+  <div class="main" id="about">
+    <br>
+    <div class="container center">
+      <img src="me.jpg" alt="Alvina" class="image" style="width:100%">
+      <div class="middle">
+        <div class="text">
+          <h1>I AM ALVINA.</h1>
+          <h3>Passionate. Inquisitive. Genuine.</h3>
+          <br>
+          I believe in empathy - it is the only thing that will bring us to places beyond our limited perspectives.
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div id="navbar">
+  <a class="active" href="#about" title="Alvina Ong Si Ying"><i class="fa fa-fw fa-user"></i> Alvina Ong Si Ying</a>
+  <a href="#education" title="Education"><i class="fa fa-fw fa-graduation-cap"></i> Education</a>
+  <a href="#competencies" title="Competencies"><i class="fa fa-fw fa-thumbs-up"></i> Competencies</a>
+  <a href="#portfolio" title="Portfolio"><i class="fa fa-fw fa-folder-open"></i> Portfolio</a>
+  <a href="#activities" title="Activities"><i class="fa fa-fw fa-check-circle"></i> Activities</a>
+  <a href="#contact"><i class="fa fa-fw fa-phone"></i> Contact</a>
+</div> -->
+
+<div class="main" id="education">
+  <h1>Education</h1>
+  <hr>
+  <div>
+    <div class="row">
+      <div class="column-list left">
+        <h3>National University of Singapore</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-list left">
+        <em>Bachelor of Business Administration (Honours) and Bachelor of Computing in Computer Science (Honours)</em>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-list left">
+        <em>Aug 2017 - May 2022 (Expected)</em>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-list left">
+        <ul>
+          <li>Business Administration (current CAP: 4.0/5) - Business Analytics/Finance</li>
+          <li>Computer Science (current CAP: 4.0/5) - Software Engineering</li>
+          <li>NUS Business Dean's Scholarship</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="column-list left">
+        <h3>Victoria Junior College</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-list left">
+        <em>General Certificate of Education (Advanced Level)</em>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-list left">
+        <em>Jan 2015 - Dec 2016</em>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-list left">
+        <ul>
+          <li>Distinction in Chemistry, Economics, General Paper and Mathematics.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+    
+<div class="main" id="competencies">
+  <h1>Core Competencies</h1>
+  <hr>
+  <div>
+    <div class="row">
+    <div class="column-list left">
+      <h3>Programming Languages</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-list left">
+      Java
+    </div>
+    <div class="column-list right">
+      Proficient
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-list left">
+      Python
+    </div>
+    <div class="column-list right">
+      Proficient
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-list left">
+      C
+    </div>
+    <div class="column-list right">
+      Intermediate
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-list left">
+      Ruby
+    </div>
+    <div class="column-list right">
+      Basic
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-list left">
+      Javascript
+    </div>
+    <div class="column-list right">
+      Basic
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-list left">
+      <h3>Front-end Development</h3>
+    </div>
+    <div class="column-list right">
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-list left">
+      HTML, CSS
+    </div>
+    <div class="column-list right">
+      Intermediate
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-list left">
+      JavaFX
+    </div>
+    <div class="column-list right">
+      Basic
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-list left">
+      <h3>Back-end Development</h3>
+    </div>
+    <div class="column-list right">
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-list left">
+      Firebase
+    </div>
+    <div class="column-list right">
+      Proficient
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-list left">
+      <h3>UI/UX</h3>
+    </div>
+    <div class="column-list right">
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-list left">
+      Adobe Photoshop
+    </div>
+    <div class="column-list right">
+      Basic
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-list left">
+      <h3>Others</h3>
+    </div>
+    <div class="column-list right">
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-list left">
+      Microsoft Office Productivity Tools
+    </div>
+    <div class="column-list right">
+      Proficient
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-list left">
+      DSLR
+    </div>
+    <div class="column-list right">
+      Proficient
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="main" id="work">
+  <h1>Work Experience</h1>
+  <hr>
+  <div>
+    <div class="row">
+      <div class="column-list left">
+        <h3>Vouch SG</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-list left">
+        <em>Intern</em>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-list left">
+        <em>Dec 2018 - Jan 2019</em>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-list left">
+        <ul>
+          <li>Analysed user's interactions with the chatbots in the hotel and food and beverages industries and trained the chatbots to enhance user experience.</li>
+          <li>Wrote functional requirements on the proposed nationwide chatbot for tourists' usage which led to Vouch acquiring the deal.</li>
+          <li>Formulated weekly reports in Excel spreadsheets to review users' satisfaction and enhanced users' experience by introducing a new feature that accounted for 80% of the chatbot's usage, also reducing manhours of the front desk.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column-list left">
+        <h3>Hugo Boss</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-list left">
+        <em>Retail Assistant</em>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-list left">
+        <em>Apr 2017 - Jun 2017</em>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-list left">
+        <ul>
+          <li>Proactive in assisting the full-time staff in the maintenance of the storefront and customer service and sales.</li>
+          <li>Tasked to maintain neatness of the stocks in the storeroom.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column-list left">
+        <h3>Cruger Haus SG</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-list left">
+        <em>Research Assistant</em>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-list left">
+        <em>Feb 2017 - Mar 2017</em>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-list left">
+        <ul>
+          <li>Analysed and extracted relevant data from market surveys on hundreds of participants on smoking in Singapore and plotted current trends of the participants’ demographics with respect to smoking habits for the client. </li>
+          <li>Conducted follow-up validation on 100 survey respondents to ensure quality of surveys done. </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="main" id="portfolio">
+
+  <h1>Portfolio</h1>
+  <hr>
+  <div class="card" align="center">
+     <img src="ALive logo.jpeg" alt="ALive" style="width:100%">
+     <div class="container">
+       <h4><b>ALive</b></h4> 
+       <p>Linking like-minded student organisers to volunteers.</p>
+       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ALive">Find out more</button>
+     </div>
+  </div>
+  <br>
+
+<!-- Modal -->
+  <div class="modal fade" id="ALive" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">ALive</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="ALive_flow.jpg" style="width: 100%">
+          <h4>Why?</h4>
+          <p>ALive was built with the initial idea of helping young student leaders to source for volunteers more easily through this platform. ALive is capable of streamlining the process of validation - through QR code scanning.</p>
+          <h4>Worked with?</h4>
+          <p>Used Java and XML under Android Studio, and Firebase</p>
+          <h4>In the future...</h4>
+          <p>Future modifications to include the gamification of volunteering with respect to the total number of hours volunteered.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main" id="activities">
+
+  <h1>Extra-Curricular Activities</h1>
+  <hr>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="profile.jpg" style="height: 100%">
+            <div class="text-block">
+              <h5>Vice President of Student Development</h5>
+              <h6>NUS Students' Computing Club</h6>
+              <h6><em>Aug 2018 - current</em></h6>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <h5>Led a team of 32 under the Academic Liaison and Community Service cells to roll out activities for undergraduates in School of Computing (SoC)</h5>
+            <strong>Key new initiatives:</strong>
+            <h5><u>Elderly Service Project Chinese New Year Engagement Day:</u> 50+ volunteers visited elderly homes to clean and distribute food provisions.</h5>
+            <h5><u>Career Launchpad:</u> Talks from industry experts and workshops by external vendors for 200+ students to prepare for job hunting.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="makiBB.jpeg" style="height: 100%">
+            <div class="text-block">
+              <h5>Event Organiser</h5>
+              <h6>Project Spright Academy</h6>
+              <h6><em>Oct 2018 - Mar 2019</em></h6>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <h5>Planned and executed activities of educational purposes for under-privileged children.</h5>
+            <h5>Activities included: 
+              <ul>
+                <li>Terrarium making (Environmental awareness)</li>
+                <li>Baking (Home economics)</li>
+                <li>Learning a third language (Appreciation of languages)</li>
+                <li>Sports day (Physical fitness)</li>
+                <li>Civil Engineering and Musical Day (Teamwork and musical appreciation)</li>
+              </ul>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="BSA.jpg" style="width: 100%">
+            <div class="text-block">
+              <h5>Internal Marketing Head</h5>
+              <h6>NUS Business School Alumni Youth Wing</h6>
+              <h6><em>Jun 2018 - Sep 2018</em></h6>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <h5>In charge of ideating ways to increase participation in the finale networking event - Connexxion 2018.</h5>
+            <h5>Initiated offline marketing campaigns - pre/post-lecture pitching.</h5>
+            <h5>Generated enticing captions on NUS BSA social media platforms.</h5>
+            <h5>Resulted in a higher than expected turn up of 50 student participants for the intimate and meaningful networking event.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="flag18.jpg" style="height: 100%">
+            <div class="text-block">
+              <h5>FLAG Marketing Head</h5>
+              <h6>Computing Club Community Service Cell</h6>
+              <h6><em>Sep 2017 - Aug 2018</em></h6>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <h5>Ideated simple and engaging activities for the intellectually disabled children from our beneficiary.</h5>
+            <h5>Designed the fundraising booth to attract students to purchase our fundraising items.</h5>
+            <h5>Assisted in execution of Beneficiary Engagement Days and FLAG Day (raised funds on the streets).</h5>
+            <h5>Successfully raised a total of ~$7000 for our beneficiary on FLAG Day with ~300 student volunteers.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="oweek.jpeg" style="width: 100%">
+            <div class="text-block">
+              <h5>Publicity Member</h5>
+              <h6>NUS Business School Orientation Week</h6>
+              <h6><em>Dec 2017 - Aug 2018</em></h6>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <h5>In charge of photography prior to and during the camp.</h5>
+            <h5>Assisted in filming of househeads (leaders of Orientation Group Leaders (OGL)) and carried out a photoshoot for them.</h5>
+            <h5>Designed a recruitment poster for recruitment of OGL for the camp.</h5>
+            <h5>Tasked to capture precious memories throughout the camp and photos were used to make a video montage that was shown at the end of the camp.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="fsc18.jpeg" style="width: 100%">
+            <div class="text-block">
+              <h5>Manpower member</h5>
+              <h6>NUS School of Computing Freshmen Social Camp</h6>
+              <h6><em>Dec 2017 - Jun 2018</em></h6>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <h5>Assisted in manpower </h5>
+            <h5>Took care of admin stuff, planned and executed activities on Beach Day.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="singer.jpg" style="height: 100%">
+            <div class="text-block">
+              <h5>Singer</h5>
+              <h6>NUS Chinese Society 歌谣</h6>
+            </div>
+          </div>
+          <div class="flip-card-back">
+            <h5>Performed an original song during 红白歌会 concert.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- END MAIN -->
+</div>
+
+</div>
+
+<!-- <footer id="contact">
+  <div class="navbar" id="contact">
+    <a class="active" href="#me" title="Back to top"><i class="fa fa-fw fa-arrow-up"></i></a> 
+    <a href="mailto:ongsiying@u.nus.edu" title="Email me"><i class="fa fa-fw fa-envelope"></i></a> 
+    <a href="https://www.linkedin.com/in/si-ying-ong" title="LinkedIn"><i class="fa fa-fw fa-linkedin"></i></a> 
+    <a href="https://www.github.com/siyingpoof" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
+  </div>
+</footer> -->
+
+<div class="container" id="contact">
+  <hr />
+  <div class="text-center center-block">
+    <h3 >- Contact me! -</h3>
+    <br />
+      <a href="https://www.linkedin.com/in/si-ying-ong"><i class="fa fa-linkedin fa-3x social"></i></a>
+      <a href="https://www.github.com/siyingpoof"><i class="fa fa-github fa-3x social"></i></a>
+      <a href="mailto:ongsiying@u.nus.edu"><i class="fa fa-envelope-square fa-3x social"></i></a>
+  </div>
+  <hr />
+</div>
+
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("sidebar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="jquery.headerhighlight.js"></script>
+
+<script type="text/javascript">
+  $('.main').headerhighlight({
+    elementsChanging: $('.sidenav-link'),
+    currentClass: 'nav-active',
+    offset: 0
+  });
+</script>
+
+
+</body>
+</html>
