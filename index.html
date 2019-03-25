@@ -15,7 +15,7 @@
 
 .sidenav {
   height: 100%;
-  width: 60px;
+  width: 50px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -47,8 +47,9 @@ body {
   background-color: #f9f6ef;
   padding: 20px; 
   font-family: Rubik;
-  margin-left: 60px;
-  align-content: center;
+  margin-left: 50px;
+  margin-right: 20px;
+  /*align-content: center;*/
   position: relative;
 }
 
@@ -152,22 +153,6 @@ h1 {
   clear: both;
 }
 
-/* Responsive columns */
-@media screen and (max-width: 1050px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
-@media screen and (max-width: 1050px) {
-	.card {
-	  	width: 100%;
-	  	display: block;
-	}
-}
-
 /* card for portfolio */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -184,12 +169,14 @@ h1 {
   padding-bottom: 16px;
 }
 
+
+
 .flip-card {
   background-color: transparent;
   width: 26rem;
   height: 26rem;
   perspective: 1000px;
-}
+}.
 
 .flip-card-inner {
   position: relative;
@@ -213,7 +200,7 @@ h1 {
 }
 
 .flip-card-front {
-  background-color: #bbb;
+  background-color: #f9f6ef;
   color: black;
   z-index: 2;
 }
@@ -278,42 +265,235 @@ h1 {
      color: #546d5a;
  }
 
+
  .display-when-big {
     display: inline;
 }
 .display-when-small {
     display: none;
 }
-@media screen and (max-width: 1000px) {
+
+/* Responsive columns */
+@media screen and (max-width: 1050px) {
+  .column {
+    width: 50%;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .card {
+	  	width: 100%;
+	  	display: block;
+  }
+
+  .flip-card {
+	  background-color: transparent;
+	  width: 100%;
+	  perspective: 1000px;
+	}
+
+	.flip-card-inner {
+	  position: relative;
+	  width: 100%;
+	  height: 100%;
+	  text-align: center;
+	  transition: transform 0.6s;
+	  transform-style: preserve-3d;
+	  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	}
+
+	.flip-card:hover .flip-card-inner {
+	  transform: rotateY(180deg);
+	}
+
+	.flip-card-front, .flip-card-back {
+	  position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  backface-visibility: hidden;
+	}
+
+	.flip-card-front {
+	  background-color: #f9f6ef;
+	  color: black;
+	  z-index: 2; 
+	}
+
+	.flip-card-back {
+	  /*background-color: #000000;*/
+	  background-image: url("background1.jpg");
+	  color: black;
+	  transform: rotateY(180deg);
+	  z-index: 1;
+	  /*padding: 10px;*/
+	  padding-top: 3px;
+	  text-align: left;
+	}
+
+	.text-block {
+	  position: absolute;
+	  bottom: 20px;
+	  right: 20px;
+	  left: 20px;
+	  background-color: black;
+	  color: white;
+	  padding-left: 20px;
+	  padding-right: 20px;
+	  opacity: 0.8;
+	}
+}
+
+@media screen and (max-width: 800px) {
     .display-when-big {
         display: none;
     }
     .display-when-small {
         display: inline;
     }
+
+    .flip-card {
+	  background-color: transparent;
+	  width: 100%;
+	  perspective: 1000px;
+	}
+
+	.flip-card-inner {
+	  position: relative;
+	  width: 100%;
+	  height: 100%;
+	  text-align: center;
+	  transition: transform 0.6s;
+	  transform-style: preserve-3d;
+	  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	}
+
+	.flip-card:hover .flip-card-inner {
+	  transform: rotateY(180deg);
+	}
+
+	.flip-card-front, .flip-card-back {
+	  position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  backface-visibility: hidden;
+	}
+
+	.flip-card-front {
+	  background-color: #000000;
+	  color: black;
+	  z-index: 2; 
+	}
+
+	.flip-card-back {
+	  /*background-color: #000000;*/
+	  background-image: url("background1.jpg");
+	  color: black;
+	  transform: rotateY(180deg);
+	  z-index: 1;
+	  /*padding: 10px;*/
+	  padding-top: 3px;
+	  text-align: left;
+	}
+
+	.text-block {
+	  position: absolute;
+	  bottom: 20px;
+	  right: 20px;
+	  left: 20px;
+	  background-color: black;
+	  color: white;
+	  padding-left: 20px;
+	  padding-right: 20px;
+	  opacity: 0.8;
+	}
 }
 
-@media (max-width: 360px) {
+/*phone view*/
+@media screen and (max-width: 600px) {
     .main {
       padding: 0px;
-      margin: 0px;
+      margin-right: -10px;
+      margin-left: 10px;
       padding-top: 10px;
+      align-content: center;
     }
 
     .body {
       padding: 0px;
     }
+
     .column-list {
 	    margin-left: 20px;
 	    margin-right: 20px;
 	}
 	.row {
-	  margin: 0px -20px;
+	  margin: 0px -30px;
 	  padding: 0px;
+	}
+	.column {
+		/*float: left;*/
+		/*align-items: center;*/
+		width: 100%;
+		/*padding: 0 10px;*/
 	}
 
 	h1 {
-		font-size: 30px;
+		font-size: 36px;
+	}
+
+	.flip-card {
+	  background-color: transparent;
+	  width: 100%;
+	  perspective: 1000px;
+	}
+
+	.flip-card-inner {
+	  position: relative;
+	  width: 100%;
+	  height: 100%;
+	  text-align: center;
+	  transition: transform 0.6s;
+	  transform-style: preserve-3d;
+	  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	}
+
+	.flip-card:hover .flip-card-inner {
+	  transform: rotateY(180deg);
+	}
+
+	.flip-card-front, .flip-card-back {
+	  position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  backface-visibility: hidden;
+	}
+
+	.flip-card-front {
+	  background-color: #f9f6ef;
+	  color: black;
+	  z-index: 2; 
+	}
+
+	.flip-card-back {
+	  /*background-color: #000000;*/
+	  background-image: url("background1.jpg");
+	  color: black;
+	  transform: rotateY(180deg);
+	  z-index: 1;
+	  /*padding: 10px;*/
+	  padding-top: 3px;
+	  text-align: left;
+	}
+
+	.text-block {
+	  position: absolute;
+	  bottom: 20px;
+	  right: 20px;
+	  left: 20px;
+	  background-color: black;
+	  color: white;
+	  padding-left: 20px;
+	  padding-right: 20px;
+	  opacity: 0.8;
 	}
 
 }
@@ -707,8 +887,8 @@ h1 {
           <div class="flip-card-back">
             <h5><strong>Leading</strong> a team of 32 under the Academic Liaison and Community Service cells to roll out activities for Computing undergraduates.</h5>
             <strong>Key new initiatives:</strong>
-            <h5><u>Elderly Service Project Chinese New Year Engagement Day:</u> 50+ volunteers visited elderly homes to clean and distribute food provisions.</h5>
-            <h5><u>Career Launchpad:</u> Talks from industry experts and workshops by external vendors for 200+ students to prepare for job hunting.</h5>
+            <h5><u>Elderly Chinese New Year Engagement Day:</u> 50+ volunteers visited elderly homes to clean and distribute food provisions.</h5>
+            <h5><u>Career Launchpad:</u> Talks and workshops by industry experts for 200+ students to prepare for job hunting.</h5>
           </div>
         </div>
       </div>
@@ -780,7 +960,6 @@ h1 {
             <h5><strong>Ideated</strong> simple and engaging activities for the intellectually disabled children from our beneficiary.</h5>
             <h5><strong>Designed</strong> the fundraising booth to attract students to purchase our fundraising items.</h5>
             <h5><strong>Assisted</strong> in execution of Beneficiary Engagement Days and FLAG Day (raised funds on the streets).</h5>
-            <h5>Successfully raised a total of ~$7000 for our beneficiary on FLAG Day with ~300 student volunteers.</h5>
           </div>
         </div>
       </div>
@@ -822,7 +1001,6 @@ h1 {
             <h5><strong>Assisted</strong> in the selection process of the Orientation Group Leaders.</h5>
             <h5><strong>Collated</strong> important information and documents to ensure safety and welfare of participants.</h5>
             <h5><strong>Ideated</strong> engaging original games that fosters teamwork within groups for Beach Day.</h5>
-            <h5>Participants feedbacked that Freshmen Social Camp was a one-of-a-kind camp that helped fostered strong friendships even beyond the camp.</h5>
           </div>
         </div>
       </div>
