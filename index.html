@@ -96,7 +96,7 @@ body {
   transition: .5s ease;
   opacity: 0;
   position: absolute;
-  top: 35%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -159,6 +159,8 @@ h1 {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   padding: 10px;
+  height: 325px;
+  width: 300px;
 }
 
 .card:hover {
@@ -536,11 +538,10 @@ h1 {
 	          <br>
 	        </div>
 	      </div>
-	      <br>
-	      <h4>I am a year 2 undergraduate studying Business Administration and Computer Science in NUS. <br><br> I am interested in a Software Engineering role, though I am open to all other functions too. Software engineering particularly interests me because it exposes me to both the front and back-end of the development, and I am excited to work in a team. <br> I am also open to the kinds of the industries, as I believe usage of technology is prevelant almost everywhere. <br><br> My hobbies include singing and photography, especially in nature and human.</h4>
-	      <br>
-	      <a href="https://drive.google.com/file/d/1RPmgXenXAFMnrtLJrdJrXcbYvAryXK-r/view?usp=sharing"><button type="button" class="btn btn-primary"><i class="fa fa-fw fa-eye"></i> View my resume</button></a>
 	    </div>
+	    <h4 align="center">I am <strong>Alvina</strong>, a year 2 undergraduate studying Computer Science and Business Administration in NUS. I pride myself in being innovative and empathetic in ideating solutions to problems critically. <br><br> I am interested in a <strong>Software Engineering role</strong>, though I am open to a mixture of other functions too. From my previous projects, I have gained great experience working in teams. I love challenges and I learn fast to pick up new skills required. <br><br> I would love to stay in the technology field to as there are always new challenges emerging and creators stepping up to resolve them. I hope to someday <em>become one of them</em> to solve social issues in the future. </h4>
+	    <br>
+	    <a href="https://drive.google.com/file/d/1RPmgXenXAFMnrtLJrdJrXcbYvAryXK-r/view?usp=sharing"><button type="button" class="btn btn-primary"><i class="fa fa-fw fa-eye"></i> View my resume</button></a>
     </span>
 
     <span class="display-when-small">
@@ -785,19 +786,29 @@ h1 {
   <div class="row">
   	<div class="column">
   		<div class="card" align="center">
-		     <img src="ALive logo.jpeg" alt="ALive" style="width:100%">
+		     <img src="ALive logo.jpeg" alt="ALive" style="width:55%">
 		     <div class="container">
 		       <h4><b>ALive</b></h4> 
 		       <p>Linking like-minded student organisers to volunteers.</p>
 		       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ALive">Find out more</button>
 		     </div>
 		  </div>
-  	</div>
+  		</div>
+  		<div class="column">
+  			<div class="card" align="center">
+		      <img src="docX_Ui.png" alt="docX" style="width:100%">
+		      <div class="container">
+		        <h4><b>docX</b></h4> 
+		        <p>Destop software for Traditional Chinese Medicine clinics.</p>
+		        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#docX">Find out more</button>
+		      </div>
+		  	</div>
+  		</div>
   </div>
   
   <br>
 
-<!-- Modal -->
+<!-- Modal for ALive -->
   <div class="modal fade" id="ALive" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -815,6 +826,34 @@ h1 {
           <p>Used Java and XML under Android Studio, and Firebase</p>
           <h4>In the future...</h4>
           <p>Future modifications to include the gamification of volunteering with respect to the total number of hours volunteered.</p>
+          <a href="https://github.com/siyingpoof/Orbital"><button type="button" class="btn btn-primary">View on Github</button></a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal for docX -->
+  <div class="modal fade" id="docX" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">docX</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="docX_Ui.png" style="width: 100%">
+          <h4>Why?</h4>
+          <p>docX was built with the initial idea of helping receptionists of Traditional Chinese Medicine (TCM) Clinics with ....</p>
+          <h4>Worked with?</h4>
+          <p>Used Java, javaFX and JSON under IntelliJ</p>
+          <h4>In the future...</h4>
+          <p>More features such as... will be added.</p>
+          <a href="https://github.com/siyingpoof/main"><button type="button" class="btn btn-primary">View on Github</button></a>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
