@@ -152,6 +152,13 @@ p { color: var(--gray-700); }
   font-size: 1.45rem;
   color: var(--brown-900);
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav__logo-img {
+  height: 2rem;
+  width: auto;
 }
 .nav__links {
   display: flex;
@@ -302,6 +309,50 @@ p { color: var(--gray-700); }
 .card__icon { font-size: 2.4rem; margin-bottom: 1rem; }
 .card__title { font-size: 1.15rem; margin-bottom: 0.5rem; }
 .card__desc { font-size: 0.94rem; color: var(--gray-500); }
+
+.result-list {
+  display: grid;
+  gap: 1.5rem;
+  margin: 2rem auto 0;
+  padding: 0;
+  max-width: 760px;
+}
+.result-group {
+  display: grid;
+  gap: 1rem;
+}
+.result-group__year {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--amber-600);
+}
+.result-subject-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.9rem;
+}
+.result-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-100);
+  box-shadow: var(--shadow-card);
+  padding: 1rem;
+  min-height: 140px;
+  display: grid;
+  gap: 0.6rem;
+}
+.result-card h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--brown-900);
+}
+.result-card p {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--gray-700);
+}
 
 /* TESTIMONIALS */
 .testimonials-grid {
